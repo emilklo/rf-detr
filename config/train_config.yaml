@@ -1,0 +1,39 @@
+# RF-DETR Training Configuration
+
+# Dataset settings
+dataset:
+  dir: "datasets/lars_rfdetr"
+
+# Training hyperparameters
+training:
+  epochs: 100
+  batch_size: 8
+  grad_accum_steps: 2
+  lr: 1.0e-3
+
+# Output settings
+output:
+  dir: "auto"  # auto = generate based on training params, or specify a custom path
+
+# Hardware settings
+hardware:
+  gpu: "cuda"  # or "cpu"
+
+# Model settings
+model:
+  pretrain_weights: null  # null to use default, or path to checkpoint
+
+# Optional: Override for different GPUs
+# Uncomment and adjust for your hardware
+profiles:
+  v100:
+    batch_size: 4
+    grad_accum_steps: 4
+
+  a100:
+    batch_size: 8
+    grad_accum_steps: 2
+
+  cpu:
+    batch_size: 1
+    grad_accum_steps: 16

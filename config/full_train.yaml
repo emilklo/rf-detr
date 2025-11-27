@@ -1,0 +1,19 @@
+# Full training configuration - 100 epochs
+
+dataset:
+  dir: "datasets/lars_rfdetr"
+
+training:
+  epochs: 100
+  batch_size: 8
+  grad_accum_steps: 2
+  lr: 1.0e-4
+
+output:
+  dir: "auto"  # auto = generate based on training params
+
+hardware:
+  gpu: "cuda"
+
+model:
+  pretrain_weights: null
